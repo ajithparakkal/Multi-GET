@@ -12,7 +12,7 @@ def file_download(url, output_path):
     headers = {'Range': 'bytes=0-3999999'} 
     try:
         # get request for the URL
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, stream=True, headers=headers)
     except requests.exceptions.MissingSchema:
         #exit if the URL is invalid
         print("Invalid URL")
